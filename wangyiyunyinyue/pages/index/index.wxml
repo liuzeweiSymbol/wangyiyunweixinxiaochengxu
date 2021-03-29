@@ -1,0 +1,84 @@
+<view class="indexContainer">
+  <!-- 轮播图区域 -->
+  <swiper class="banner" indicator-dots='true' indicator-color="rgba(241,239,252)" indicator-active-color="#D43C33" autoplay='ture' circular='true'>
+    <!-- 1.微信中key不用对象前缀,直接写对象里唯一的属性就行 2.不需要加{{}}双大括号-->
+    <swiper-item wx:for="{{bannerList}}" wx:key='bannerId'>
+      <!-- index:下标,item是元素 -->
+      <!-- <image  src="{{bannerList[index].pic}}"></image> -->
+      <image src="{{item.pic}}"></image>
+    </swiper-item>
+  </swiper>
+
+  <!-- 五个图标导航区域 -->
+  <view class="navContainer">
+    <view class="navItem" bindtap="toRecommendSong">
+      <text class="iconfont icon-jinrituijian"></text>
+      <text>每日推荐</text>
+    </view>
+    <view class="navItem">
+      <text class="iconfont icon-gedan"></text>
+      <text>歌单</text>
+    </view>
+    <view class="navItem">
+      <text class="iconfont icon-paihangbang"></text>
+      <text>排行榜</text>
+    </view>
+    <view class="navItem">
+      <text class="iconfont icon-diantai"></text>
+      <text>电台</text>
+    </view>
+    <view class="navItem">
+      <text class="iconfont icon-zhiboziyuan"></text>
+      <text>直播</text>
+    </view>
+  </view>
+
+  <view class="hr"></view>
+
+  <!-- 推荐歌曲区域 -->
+  <view class="recommendContainer">
+    <!-- 头部文字区域 -->
+    <!-- <view class="header">   
+      <text>推荐歌单</text>
+      <text class="right">歌单广场</text>
+    </view> -->
+    <!-- 使用封装好的头部组件 -->
+    <NavHeader left='推荐歌单' right='歌单广场'></NavHeader>
+    <!-- 歌单内容区 -->
+    <!-- 
+使用 wx:for-item 可以指定数组当前元素的变量名，
+如: wx:for-item="itemName"
+使用 wx:for-index 可以指定数组当前下标的变量名：
+如: wx:for-index="idx"
+     -->
+    <scroll-view class="recommendScroll" enable-flex="true" scroll-x="true">
+      <view class="scrollItem" wx:for="{{recommendList}}" wx:for-item="element" wx:key='id'>
+        <image src="{{element.picUrl}}"></image>
+        <text>{{element.name}}</text>
+      </view>
+    </scroll-view>
+  </view>
+
+
+  <!-- 排行榜区域 -->
+  <view class="topList">
+    <!-- 头部区域 -->
+    <NavHeader left="排行榜" right="查看更多"></NavHeader>
+    <!-- 内容区域 -->
+    <swiper class="topListSwiper" next-margin='40rpx'>
+      <swiper-item wx:for="{{topList}}" wx:key='name'>
+        <view class="swiperItem">
+          <view class="title">{{item.name}}</view>
+          <view class="musicItem"  wx:for="{{item.tracks}}" wx:key='id' wx:for-item="element">
+            <image src="{{element.al.picUrl}}"></image>
+            <text class="num">{{index+1}}</text>
+            <text class="musicName">{{element.name}}</text>
+          </view>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+
+
+
+</view>

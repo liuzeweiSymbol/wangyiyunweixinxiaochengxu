@@ -1,0 +1,4 @@
+<view class="header">
+  <text>{{left}}</text>
+  <text class="right">{{right}}</text>
+</view>

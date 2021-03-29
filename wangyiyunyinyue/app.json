@@ -1,0 +1,76 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/video/video",
+    "pages/personal/personal",
+    "pages/login/login",
+    "pages/search/search"
+  ],
+  "subpackages": [
+    {
+      "root": "packageOther",
+      "pages": [
+        "pages/other/other"
+      ],
+      "name": "other"
+    },
+    {
+      "root": "packageSong",
+      "pages": [
+        "pages/recommendSong/recommendSong",
+        "pages/songDetail/songDetail"
+      ]
+    }
+  ],
+  "preloadRule": {
+    "pages/index/index":{
+      "network": "all",
+      "packages": ["packageSong","other"]
+    }
+  },
+  "window": {
+    "navigationBarBackgroundColor": "#D43C33",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "网易云音乐",
+    "backgroundColor": "#eee",
+    "backgroundTextStyle": "dark",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "color": "#333",
+    "selectedColor": "#D43C33",
+    "backgroundColor": "#fff",
+    "position": "top",
+    "list": [
+      {
+        "pagePath": "pages/personal/personal",
+        "text": "我的",
+        "iconPath": "/static/images/tabs/tab-my.png",
+        "selectedIconPath": "/static/images/tabs/tab-my-current.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "发现",
+        "iconPath": "/static/images/tabs/tab-home.png",
+        "selectedIconPath": "/static/images/tabs/tab-home-current.png"
+      },
+      {
+        "pagePath": "pages/video/video",
+        "text": "视频",
+        "iconPath": "/static/images/tabs/select.png",
+        "selectedIconPath": "/static/images/tabs/selected.png"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "text": "搜索",
+        "iconPath": "/static/images/tabs/tab-cate.png",
+        "selectedIconPath": "/static/images/tabs/tab-cate-current.png"
+      }
+    ]
+  },
+  "requiredBackgroundModes": [
+    "audio"
+  ],
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

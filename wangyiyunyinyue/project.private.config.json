@@ -1,0 +1,24 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "packageSong/pages/recommendSong/recommendSong",
+          "pathName": "packageSong/pages/recommendSong/recommendSong",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

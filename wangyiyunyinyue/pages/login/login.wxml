@@ -1,0 +1,29 @@
+<view class="container">
+  <view class="wrapper">
+    <view class="left-top-sign">LOGIN</view>
+    <view class="welcome">
+      欢迎回来！
+    </view>
+    <view class="input-content">
+      <view class="input-item">
+        <text class="tit">手机号码</text>
+        <!-- id可以给事件的event对象传参,id的value值会传入到event的target属性里 event.target.id -->
+        <input  type="text" placeholder="请输入手机号码" data-test='ceshi' data-type='phone' id="phone" bindinput="handleInput"/>
+      </view>
+      <view class="input-item">
+        <text class="tit">密码</text>
+        <!-- id和data-的区别,id只能传一个是唯一的,而data-可以传多个 -->
+        <!-- data-kay=value:这种也是一种给event传参方式,回传到event.target.dataset对象里 -->
+        <input type="password"  placeholder="请输入密码" data-test="test" data-type="password" id="password" bindinput="handleInput"/>
+      </view>
+    </view>
+    <button class="confirm-btn" bindtap="login">登录</button>
+    <view class="forget-section">
+      忘记密码?
+    </view>
+  </view>
+  <view class="register-section">
+    还没有账号?
+    <text >马上注册</text>
+  </view>
+</view>

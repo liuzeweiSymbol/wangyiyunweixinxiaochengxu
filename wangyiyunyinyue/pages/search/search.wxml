@@ -1,0 +1,51 @@
+<view class="searchContainer">
+  <!-- 头部搜索区 -->
+  <view class="header">
+    <view class="searchInput">
+      <text class="iconfont icon-search searchIcon"></text>
+      <input type="text" 
+        placeholder="{{placeholderContent}}" 
+        placeholder-class="placeholder"
+        bindinput="handleInputChange"
+        value="{{searchContent}}"
+      />
+      <text class="iconfont icon-shanchu clear " 
+        bindtap="clearSearchContent"
+        hidden="{{!searchContent}}"
+      ></text>
+    </view>
+    <text class="cancel">取消</text>
+  </view>
+  <!-- 模糊搜索的内容展示 -->
+  <view class="showSearchContent" wx:if="{{searchContent}}">
+    <view class="searchContent">搜索 {{'"'+searchContent+'"'}}</view>
+    <view class="searchList">
+      <view class="searchItem" wx:for="{{searchList}}" wx:key='id'>
+        <text class="iconfont icon-search"></text>
+        <text class="content">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- block块标签,被block标签包裹的标签被认为是一个整体,而且在调试器不会出现block标签 -->
+  <block wx:else>
+    <!-- 搜索历史记录 -->
+    <view class="history" wx:if="{{historyList.length>0}}">
+      <text class="title">历史</text>
+      <view class="historyItem" wx:for="{{historyList}}" wx:key="item">{{item}}</view>
+      <!-- 删除 -->
+      <text class="iconfont icon-shanchu-dis delete" bindtap="deleteSearchHistory"></text>
+    </view>
+    <!-- 热搜榜 -->
+    <view class="hotContainer">
+      <view class="title">热搜榜</view>
+      <!-- 热搜列表 -->
+      <view class="hotList">
+        <view class="hotItem" wx:for="{{hotList}}" wx:key="searchWord">
+          <text class="order">{{index+1}}</text>
+          <text>{{item.searchWord}}</text>
+          <image class="iconImg" wx:if="{{item.iconUrl}}" src="{{item.iconUrl}}"></image>
+        </view>     
+      </view>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+   "NavHeader":"/components/navheader/NavHeader"
+  },
+  "navigationBarBackgroundColor": "#D43C33"
+}

@@ -1,0 +1,79 @@
+<view class="videoContainer">
+  <!-- 头部搜索区域 -->
+  <view class="header" bindtap="toSearch">
+    <image src="/static/images/video/video.jpg"></image>
+    <view class="search">搜索</view>
+    <image src="/static/images/logo.png"></image>
+  </view>
+  <!-- 导航区域 -->
+  <scroll-view 
+    class="navScroll" 
+    scroll-x 
+    enable-flex 
+    scroll-into-view='{{"scroll"+navActive}}' 
+    scroll-with-animation
+    >
+    <view id="{{'scroll'+item.id}}" class="navItem" wx:for="{{videoGroupList}}" wx:key='id'>    
+      <!-- 1.先把name传到event.target中,然后获取到复制到navActive,
+          2.用双括号使用三元运算符动态的赋类名,如果获取到的name(navActive)和当前的name是不是一样,一样就赋值类名,
+      -->
+      <!-- <view bindtap="changeNav" class="navContent {{navActive===item.name?'active':''}}" id="{{item.name}}"> -->
+      <view bindtap="changeNav" class="navContent {{navActive===item.id?'active':''}}" id="{{item.id}}">
+        {{item.name}}
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class="hr"></view>
+
+  <!-- 视频列表区域 -->
+  <scroll-view scroll-y 
+    class="videoScroll" 
+    refresher-enabled
+    bindrefresherrefresh="beadleRefresher"
+    refresher-triggered="{{isTriggered}}"
+    bindscrolltolower="bandleToLower"
+  >
+    <view class="videoItem" wx:for="{{videoList}}" wx:key="id">
+      <video 
+        src="{{item.data.urlInfo.url}}"
+        bindplay="handlePlay"
+        id="{{item.data.vid}}"
+        poster="{{item.data.coverUrl}}"
+        class="common"
+        wx:if="{{videoId===item.data.vid}}"
+        autoplay
+        object-fit="fill"
+        bindtimeupdate="headleTimeUpdate"
+        bindended="headleEnded"
+      ></video>
+      <!-- 性能优化,使用image图片代替video标签 -->
+      <image 
+        wx:else
+        class="common" 
+        src="{{item.data.coverUrl}}" 
+        bindtap="handlePlay"
+        id="{{item.data.vid}}"
+        ></image>
+
+      <view class="content">{{item.data.title}}</view>
+      <view class="footer">
+        <image class="avatar" src="{{item.data.creator.avatarUrl}}"></image>
+        <text class="nickName">{{item.data.creator.nickname}}</text>
+        <view class="comments_praised">
+          <text class="item">
+            <text class="iconfont icon-zan"></text>
+            <text class="count">{{item.data.praisedCount}}</text>
+          </text>
+          <text class="item">
+            <text class="iconfont icon-pinglun_huabanfuben"></text>
+            <text class="count">{{item.data.commentCount}}</text>
+          </text>
+          <button open-type="share" class="item btn">
+            <text class="iconfont icon-gengduo_huaban"></text>
+          </button>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

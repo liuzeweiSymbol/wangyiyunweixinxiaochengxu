@@ -1,0 +1,130 @@
+/* 轮播图样式 */
+.banner{
+  width: 100%;
+  height: 300rpx;
+}
+.banner image{
+  width: 100%;
+  height: 100%;
+}
+/* 五个图标导航区域样式 */
+.navContainer{
+  display: flex;
+  justify-content: space-around;
+}
+.navItem{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.iconfont{
+  width: 100rpx;
+  height: 100rpx;
+  background: linear-gradient(to right, #ED694C,#EC3B1A);
+  text-align: center;
+  line-height: 100rpx;
+  border-radius: 50%;
+  font-size: 45rpx;
+  color: white;
+  margin: 20rpx 0;
+}
+.navItem :nth-child(2){
+  font-size: 26rpx;
+}
+
+.hr{
+  width: 100%;
+  height: 3rpx;
+  background: #eee;
+  margin: 20rpx 0;
+}
+
+/* 推荐歌单头部区域 */
+.recommendContainer{
+  padding: 0 20rpx;
+}
+/* .header{
+  margin: 0 30rpx;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+.header :nth-child(1){
+  font-size: 36rpx;
+  font-weight: bold;
+}
+.header .right{
+ font-size: 28rpx;
+ border: 1px solid #ccc;
+ border-radius: 30rpx;
+ padding: 10rpx 20rpx;
+} */
+/* 推荐歌单内容区 */
+.recommendScroll{
+  display: flex;
+  flex-direction: row;
+  height: 300rpx;
+}
+.scrollItem{
+  width: 200rpx;
+  /* display: flex;
+  flex-direction: column; */
+  margin-right: 20rpx;
+}
+.scrollItem image{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 20rpx;
+}
+.scrollItem text{
+  font-size: 26rpx;
+  /* 单行文本溢出隐藏,省略号代替 */
+  /* white-space: nowrap;
+  text-overflow: ellipsis;
+  display: block;
+  overflow: hidden; */
+
+  /* 多行文本溢出隐藏,省略号代替 */
+  overflow: hidden;
+  text-overflow: ellipsis;/* 溢出用省略号代替 */
+  display: -webkit-box;/* 变成webkit盒模型 */
+  -webkit-box-orient: vertical;/* 设置webkit盒模型对齐方式 */
+  -webkit-line-clamp: 2;/* 设置到多少行溢出隐藏 */
+
+}
+
+/* 排行榜区域 */
+.topListSwiper{
+  /* swiper默认高度150px */
+  height: 500rpx;
+}
+.topList{
+  padding: 0 20rpx;
+}
+.swiperItem{
+  width: 96%;
+  background: #ededed;
+}
+.swiperItem .title{
+  font-size: 32rpx;
+  line-height: 80rpx;
+}
+.swiperItem image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 6rpx;
+}
+.musicItem{
+  padding-bottom: 20rpx;
+  display: flex;
+  align-items: center;
+}
+.musicItem .musicName{
+  max-width: 300rpx;/* 最大宽度 */
+  overflow: hidden;/* 溢出隐藏 */
+  text-overflow: ellipsis;/* 省略号 */
+  white-space: nowrap; /*不换行*/
+}
+.num{
+  padding: 0 40rpx;
+}

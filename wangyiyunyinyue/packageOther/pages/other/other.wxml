@@ -1,0 +1,11 @@
+<!-- 引入模板结构 -->
+<import src="/template/myTemplate/myTemplate.wxml"></import>
+<view class="otherContainer">
+  <!-- 使用模板 -->
+  <view class="otherTitle">使用模板</view>
+  <template is='msgItem' data="{{...person}}"></template>
+<view>'=========================================================================='</view>
+  <!-- 获取用户唯一标识(openId) -->
+  <view class="otherTitle">测试获取用户唯一标识</view>
+  <button bindtap="handleGetOpenId">获取openId</button>
+</view>

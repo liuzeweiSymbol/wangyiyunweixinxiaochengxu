@@ -1,0 +1,11 @@
+/* 引入模板样式 */
+@import '/template/myTemplate/myTemplate.wxss';
+/* 引入的模板样式和页面的类名,名字不能一样,如果一样,页面的样式会覆盖模板的样式 */
+/* .title{
+  font-size: 72rpx;
+  color: #bfc;
+} */
+.otherTitle{
+  font-size: 72rpx;
+  color: #bfc;
+}
